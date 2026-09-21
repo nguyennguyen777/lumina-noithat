@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ivory text-charcoal antialiased;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-charcoal;
+  }
+}
+
+@layer components {
+  .luxury-heading {
+    @apply font-display font-light tracking-wide;
+  }
+
+  .luxury-label {
+    @apply text-xs uppercase tracking-luxury text-stone-500;
+  }
+
+  .luxury-btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-charcoal px-8 py-3.5 text-xs uppercase tracking-luxury text-ivory transition-all duration-300 hover:bg-stone-800;
+  }
+
+  .luxury-btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border border-charcoal px-8 py-3.5 text-xs uppercase tracking-luxury text-charcoal transition-all duration-300 hover:bg-charcoal hover:text-ivory;
+  }
+
+  .luxury-btn-gold {
+    @apply inline-flex items-center justify-center gap-2 bg-gold px-8 py-3.5 text-xs uppercase tracking-luxury text-white transition-all duration-300 hover:bg-gold-dark;
+  }
+
+  .luxury-input {
+    @apply w-full border-b border-stone-300 bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder:text-stone-400 focus:border-gold;
+  }
+
+  .luxury-card {
+    @apply bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #faf8f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c9a962;
+  border-radius: 3px;
+}

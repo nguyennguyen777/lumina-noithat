@@ -13,6 +13,7 @@ import {
   ArrowLeft,
 } from "lucide-react";
 import { formatPrice } from "@/lib/utils";
+import { ProductManager } from "./ProductManager";
 
 const stats = [
   { label: "Doanh thu tháng", value: formatPrice(285000000), icon: TrendingUp },
@@ -22,11 +23,23 @@ const stats = [
 ];
 
 const adminModules = [
-  { icon: Package, title: "Quản lý sản phẩm", desc: "CRUD sản phẩm, upload ảnh" },
+  {
+    icon: Package,
+    title: "Quản lý sản phẩm",
+    desc: "CRUD sản phẩm, upload ảnh",
+  },
   { icon: FolderTree, title: "Quản lý danh mục", desc: "7 danh mục chính" },
-  { icon: ShoppingCart, title: "Quản lý đơn hàng", desc: "Duyệt, cập nhật trạng thái" },
+  {
+    icon: ShoppingCart,
+    title: "Quản lý đơn hàng",
+    desc: "Duyệt, cập nhật trạng thái",
+  },
   { icon: Users, title: "Quản lý khách hàng", desc: "Danh sách, lịch sử mua" },
-  { icon: Calendar, title: "Quản lý lịch tư vấn", desc: "Calendar, assign consultant" },
+  {
+    icon: Calendar,
+    title: "Quản lý lịch tư vấn",
+    desc: "Calendar, assign consultant",
+  },
   { icon: Star, title: "Quản lý review", desc: "Duyệt / ẩn đánh giá" },
 ];
 
@@ -82,6 +95,8 @@ export default function AdminPage() {
             </div>
           ))}
         </div>
+
+        <ProductManager />
       </div>
     </div>
   );

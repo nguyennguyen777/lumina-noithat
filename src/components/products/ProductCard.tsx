@@ -20,10 +20,16 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
   return (
     <article
       className="group luxury-card animate-slide-up opacity-0"
-      style={{ animationDelay: `${index * 80}ms`, animationFillMode: "forwards" }}
+      style={{
+        animationDelay: `${index * 80}ms`,
+        animationFillMode: "forwards",
+      }}
     >
       <div className="relative aspect-[4/5] overflow-hidden bg-stone-100">
-        <Link href={`/products/${product.slug}`}>
+        <Link
+          href={`/products/${product.slug}`}
+          className="relative block h-full"
+        >
           <Image
             src={product.images[0]}
             alt={product.name}
@@ -50,7 +56,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
           onClick={() => toggleFavorite(product)}
           className={cn(
             "absolute right-4 top-4 flex h-10 w-10 items-center justify-center bg-white/90 backdrop-blur-sm transition-all duration-300 hover:bg-white",
-            favorited && "text-red-500"
+            favorited && "text-red-500",
           )}
           aria-label={favorited ? "Bỏ yêu thích" : "Thêm yêu thích"}
         >

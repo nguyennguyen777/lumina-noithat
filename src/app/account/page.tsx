@@ -10,6 +10,7 @@ import {
   ChevronRight,
   Shield,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const menuItems = [
   {
@@ -39,16 +40,52 @@ const menuItems = [
 ];
 
 export default function AccountPage() {
+  const [user, setUser] = useState<{
+    name: string;
+    email: string;
+    role: string;
+  } | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/auth/me")
+      .then((response) => response.json())
+      .then((data) => setUser(data.user))
+      .finally(() => setLoading(false));
+  }, []);
+
+  async function handleLogout() {
+    await fetch("/api/auth/logout", { method: "POST" });
+    setUser(null);
+  }
+
+  if (!loading && !user) {
+    return (
+      <div className="mx-auto max-w-lg px-6 py-20 text-center lg:py-32">
+        <User className="mx-auto h-10 w-10 text-gold" />
+        <h1 className="mt-6 font-display text-4xl font-light">
+          Tài khoản LUMINA
+        </h1>
+        <p className="mt-3 text-sm text-stone-500">
+          Đăng nhập để quản lý đơn hàng, lịch tư vấn và sản phẩm yêu thích.
+        </p>
+        <Link href="/account/login" className="luxury-btn-primary mt-8">
+          Đăng nhập
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <div className="mx-auto max-w-3xl px-6 py-12 lg:px-8 lg:py-20">
       <div className="mb-12 text-center">
         <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-stone-100">
           <User className="h-8 w-8 text-stone-400" />
         </div>
-        <h1 className="font-display text-3xl font-light">Xin chào, Khách</h1>
-        <p className="mt-2 text-sm text-stone-500">
-          Demo tài khoản — đăng nhập sẽ được tích hợp ở phase backend
-        </p>
+        <h1 className="font-display text-3xl font-light">
+          Xin chào, {user?.name ?? "bạn"}
+        </h1>
+        <p className="mt-2 text-sm text-stone-500">{user?.email}</p>
       </div>
 
       <div className="space-y-3">
@@ -68,13 +105,23 @@ export default function AccountPage() {
         ))}
       </div>
 
-      <Link
-        href="/admin"
-        className="mt-8 flex items-center justify-center gap-2 text-xs uppercase tracking-luxury text-stone-400 transition-colors hover:text-gold"
-      >
-        <Shield className="h-4 w-4" />
-        Xem demo Admin Dashboard
-      </Link>
+      <div className="mt-8 flex items-center justify-center gap-6">
+        {user?.role === "ADMIN" && (
+          <Link
+            href="/admin"
+            className="flex items-center gap-2 text-xs uppercase tracking-luxury text-stone-400 transition-colors hover:text-gold"
+          >
+            <Shield className="h-4 w-4" /> Admin Dashboard
+          </Link>
+        )}
+        <button
+          type="button"
+          onClick={handleLogout}
+          className="text-xs uppercase tracking-luxury text-stone-400 transition-colors hover:text-charcoal"
+        >
+          Đăng xuất
+        </button>
+      </div>
     </div>
   );
 }

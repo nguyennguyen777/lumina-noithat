@@ -13,7 +13,7 @@ export const categories: Category[] = [
     name: "Bàn",
     description: "Bàn ăn, bàn trà, bàn làm việc sang trọng",
     image:
-      "https://images.unsplash.com/photo-1617806118773-12e932dec71e?w=800&q=80",
+      "https://images.unsplash.com/photo-1532372320572-cda25653a26d?w=800&q=80",
   },
   {
     slug: "ghe",

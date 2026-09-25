@@ -4,7 +4,13 @@ import Link from "next/link";
 import { ArrowLeft, Package } from "lucide-react";
 import { formatPrice } from "@/lib/utils";
 
-const mockOrders = [
+const mockOrders: Array<{
+  id: string;
+  date: string;
+  status: "pending" | "confirmed" | "production" | "shipping" | "delivered";
+  total: number;
+  items: number;
+}> = [
   {
     id: "LUM-2024-001",
     date: "15/09/2024",
@@ -63,17 +69,13 @@ export default function OrdersPage() {
                   <p className="font-medium">{order.id}</p>
                   <p className="mt-1 text-xs text-stone-500">{order.date}</p>
                 </div>
-                <span
-                  className={`px-3 py-1 text-xs ${status.color}`}
-                >
+                <span className={`px-3 py-1 text-xs ${status.color}`}>
                   {status.label}
                 </span>
               </div>
 
               <div className="mt-4 flex items-center justify-between text-sm">
-                <span className="text-stone-500">
-                  {order.items} sản phẩm
-                </span>
+                <span className="text-stone-500">{order.items} sản phẩm</span>
                 <span className="font-medium">{formatPrice(order.total)}</span>
               </div>
 
@@ -88,7 +90,10 @@ export default function OrdersPage() {
                       }}
                     />
                     {trackingSteps.map((step, i) => (
-                      <div key={step} className="relative z-10 flex flex-col items-center">
+                      <div
+                        key={step}
+                        className="relative z-10 flex flex-col items-center"
+                      >
                         <div
                           className={`flex h-8 w-8 items-center justify-center rounded-full text-xs ${
                             i < currentStep

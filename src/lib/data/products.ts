@@ -34,8 +34,8 @@ export const products: Product[] = [
     dimensions: "240 × 100 × 75 cm",
     colors: ["Trắng Carrara", "Đen Marquina"],
     images: [
-      "https://images.unsplash.com/photo-1617806118773-12e932dec71e?w=1200&q=80",
-      "https://images.unsplash.com/photo-1615874959472-d609969a20ed?w=1200&q=80",
+      "https://images.unsplash.com/photo-1532372320572-cda25653a26d?w=1200&q=80",
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80",
     ],
     featured: true,
     rating: 4.8,
@@ -111,7 +111,7 @@ export const products: Product[] = [
     colors: ["Champagne Gold", "Brushed Nickel"],
     images: [
       "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=1200&q=80",
-      "https://images.unsplash.com/photo-1524484485831-a92ffc687163?w=1200&q=80",
+      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=1200&q=80",
     ],
     featured: true,
     rating: 5.0,
@@ -148,7 +148,7 @@ export const products: Product[] = [
     dimensions: "320 × 160 × 75 cm",
     colors: ["Stone Grey", "Warm Taupe"],
     images: [
-      "https://images.unsplash.com/photo-1540574163026-643ea20ade68?w=1200&q=80",
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=80",
       "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=80",
     ],
     rating: 4.8,
@@ -183,7 +183,7 @@ export const products: Product[] = [
     dimensions: "180 × 40 cm",
     colors: ["Matte Black", "Brass"],
     images: [
-      "https://images.unsplash.com/photo-1507473885765-e6ed132f1d16?w=1200&q=80",
+      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=1200&q=80",
     ],
     rating: 4.7,
     reviewCount: 22,
@@ -200,7 +200,7 @@ export const products: Product[] = [
     dimensions: "48 × 55 × 88 cm",
     colors: ["Tan", "Black"],
     images: [
-      "https://images.unsplash.com/photo-1581539250439-c96643baf171?w=1200&q=80",
+      "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=1200&q=80",
     ],
     rating: 4.4,
     reviewCount: 28,
